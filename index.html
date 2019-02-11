@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="reset.min.css"/>
+    <link rel="stylesheet" href="libs/swiper/swiper.min.css"/>
+    <link rel="stylesheet" href="styles.min.css"/>
+    <title>Webcom group</title>
+  </head>
+  <body>
+    <div id="main"></div>
+    <header class="header header_bg">
+      <div class="header__wrap">
+        <div class="header__logo"><a href="#main"><img class="logo" src="header/header/logo.png" alt="webcom logo"/></a></div>
+        <nav class="header__nav">
+          <ul class="header__list">
+            <li><a class="header__link header__link_active" href="#main">ГЛАВНАЯ</a></li>
+            <li><a class="header__link" href="#portfolio">ПОРТФОЛИО</a></li>
+            <li><a class="header__link" href="#advantages">ПРЕИМУЩЕСТВА</a></li>
+            <li><a class="header__link" href="#reviews">КОНТАКТЫ</a></li>
+          </ul>
+        </nav>
+        <div class="header__contacts"><a class="header__number" href="tel:+375(29)123-45-67">+375 (29) 123-45-67</a><br/><a class="header__number" href="tel:+375(29)123-45-67">+375 (29) 123-45-67</a></div>
+        <div class="mobile"><span class="mobile__icon burger open-menu"></span></div>
+      </div>
+    </header>
+    <section class="slider">
+      <div class="slider__wrap swiper-container">
+        <div class="swiper-wrapper">
+          <div class="slider__slide swiper-slide">
+            <div class="slider__content">
+              <h1 class="slider__title">ГЛАВНЫЙ ЗАГОЛОВОК</h1>
+              <div class="slider__separator"><span class="slider__separator-center"></span></div>
+              <p class="slider__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus odio maxime fuga accusantium optio ducimus porro veritatis nisi? Lorem ipsum dolor sit amet.</p>
+            </div>
+            <button class="slider__button open__modal">ОФОРМИТЬ ЗАЯВКУ</button>
+          </div>
+          <div class="slider__slide swiper-slide">
+            <div class="slider__content">
+              <h2 class="slider__title">ВТОРОЙ ЗАГОЛОВОК</h2>
+              <div class="slider__separator"><span class="slider__separator-center"></span></div>
+              <p class="slider__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus odio maxime fuga accusantium optio ducimus porro veritatis nisi? Lorem ipsum dolor sit amet. Lorem ipsum, dolor sit amet consectetur adipisicing elit!</p>
+            </div>
+            <button class="slider__button open__modal">ОФОРМИТЬ ЗАЯВКУ</button>
+          </div>
+          <div class="slider__slide swiper-slide">
+            <div class="slider__content">
+              <h2 class="slider__title">ТРЕТИЙ ЗАГОЛОВОК</h2>
+              <div class="slider__separator"><span class="slider__separator-center"></span></div>
+              <p class="slider__text">Lorem ipsum dolor sit amet! Officiis labore, dolorem similique odit neque repudiandae consequatur!</p>
+            </div>
+            <button class="slider__button open__modal">ОФОРМИТЬ ЗАЯВКУ</button>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      <!-- скролл к следующему блоку--><a class="nextBlock" href="#portfolio">
+        <div class="slider__next-block"></div></a>
+    </section>
+    <!-- фиксированный скроллбар справа-->
+    <div class="scrollbar"><a class="dot scrollbar__dot dot_nav dot_active" href="#main"></a><a class="dot scrollbar__dot dot_nav" href="#portfolio"></a><a class="dot scrollbar__dot dot_nav" href="#advantages"></a><a class="dot scrollbar__dot dot_nav" href="#reviews"></a></div>
+    <!-- кнопка наверх--><a class="scrollStart" href="#main">
+      <div class="btnUp showBtn"></div></a>
+    <!-- модальное окно для кнопки "оформить заявку"-->
+    <div class="modal">
+      <div class="modal__overlay modal__overlay_hide"></div>
+      <div class="modal__window"><span class="modal__x modal__x_hide">X</span></div>
+    </div>
+    <div id="portfolio"></div>
+    <section class="portfolio">
+      <div class="portfolio__wrap">
+        <div class="portfolio__content"> 
+          <h2 class="title">НАША РАБОТА</h2>
+          <div class="portfolio__separator_wrap"> 
+            <div class="separator-wavy"></div>
+          </div>
+          <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis, excepturi. Repellat laudantium temporibus ea tempora, modi iste nam. Natus corporis omnis quod fuga molestiae dolorum!</p>
+        </div>
+        <div class="works">
+              <div class="works__box">
+                <div class="works__box_hover-slide">
+                  <p class="works__name">НАЗВАНИЕ РАБОТЫ</p>
+                  <div class="works__separator">
+                    <div class="separator-wavy"></div>
+                  </div><span class="works__description">ОПИСАНИЕ РАБОТЫ</span>
+                </div>
+              </div>
+              <div class="works__box">
+                <div class="works__box_hover-slide">
+                  <p class="works__name">НАЗВАНИЕ РАБОТЫ</p>
+                  <div class="works__separator">
+                    <div class="separator-wavy"></div>
+                  </div><span class="works__description">ОПИСАНИЕ РАБОТЫ</span>
+                </div>
+              </div>
+              <div class="works__box">
+                <div class="works__box_hover-slide">
+                  <p class="works__name">НАЗВАНИЕ РАБОТЫ</p>
+                  <div class="works__separator">
+                    <div class="separator-wavy"></div>
+                  </div><span class="works__description">ОПИСАНИЕ РАБОТЫ</span>
+                </div>
+              </div>
+              <div class="works__box">
+                <div class="works__box_hover-slide">
+                  <p class="works__name">НАЗВАНИЕ РАБОТЫ</p>
+                  <div class="works__separator">
+                    <div class="separator-wavy"></div>
+                  </div><span class="works__description">ОПИСАНИЕ РАБОТЫ</span>
+                </div>
+              </div>
+              <div class="works__box">
+                <div class="works__box_hover-slide">
+                  <p class="works__name">НАЗВАНИЕ РАБОТЫ</p>
+                  <div class="works__separator">
+                    <div class="separator-wavy"></div>
+                  </div><span class="works__description">ОПИСАНИЕ РАБОТЫ</span>
+                </div>
+              </div>
+              <div class="works__box">
+                <div class="works__box_hover-slide">
+                  <p class="works__name">НАЗВАНИЕ РАБОТЫ</p>
+                  <div class="works__separator">
+                    <div class="separator-wavy"></div>
+                  </div><span class="works__description">ОПИСАНИЕ РАБОТЫ</span>
+                </div>
+              </div>
+        </div>
+      </div>
+    </section>
+    <div id="advantages"></div>
+    <section class="advantages">
+      <div class="advantages__wrap">
+        <div class="advantages__content"> 
+          <h2 class="title">ПОЧЕМУ МЫ</h2>
+          <div class="advantages__separator_wrap"> 
+            <div class="separator-wavy"></div>
+          </div>
+          <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis, excepturi. Repellat laudantium temporibus ea tempora, modi iste nam. Natus corporis omnis quod fuga molestiae dolorum!</p>
+        </div>
+        <div class="excellences">
+              <div class="excellences__block">
+                <div class="excellences__icon svg-monitor svg-monitor-dims"></div><span class="excellences__name">ПРЕИМУЩЕСТВО 1</span>
+                <p class="text excellences__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.</p>
+              </div>
+              <div class="excellences__block">
+                <div class="excellences__icon svg-magic_wand svg-magic_wand-dims"></div><span class="excellences__name">ПРЕИМУЩЕСТВО 2</span>
+                <p class="text excellences__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.</p>
+              </div>
+              <div class="excellences__block">
+                <div class="excellences__icon svg-rocket svg-rocket-dims"></div><span class="excellences__name">ПРЕИМУЩЕСТВО 3</span>
+                <p class="text excellences__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.</p>
+              </div>
+              <div class="excellences__block">
+                <div class="excellences__icon svg-globe_2 svg-globe_2-dims"></div><span class="excellences__name">ПРЕИМУЩЕСТВО 4</span>
+                <p class="text excellences__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.</p>
+              </div>
+              <div class="excellences__block">
+                <div class="excellences__icon svg-settings svg-settings-dims"></div><span class="excellences__name">ПРЕИМУЩЕСТВО 5</span>
+                <p class="text excellences__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.</p>
+              </div>
+              <div class="excellences__block">
+                <div class="excellences__icon svg-layers svg-layers-dims"></div><span class="excellences__name">ПРЕИМУЩЕСТВО 6</span>
+                <p class="text excellences__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.</p>
+              </div>
+              <div class="excellences__block">
+                <div class="excellences__icon svg-wrench svg-wrench-dims"></div><span class="excellences__name">ПРЕИМУЩЕСТВО 7</span>
+                <p class="text excellences__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.</p>
+              </div>
+              <div class="excellences__block">
+                <div class="excellences__icon svg-note svg-note-dims"></div><span class="excellences__name">ПРЕИМУЩЕСТВО 8</span>
+                <p class="text excellences__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.</p>
+              </div>
+        </div>
+      </div>
+    </section>
+    <div id="reviews"></div>
+    <section class="reviews">
+      <div class="reviews__wrap">
+        <div class="reviews__content"> 
+          <h2 class="title">ОСТАВЬТЕ ОТЗЫВ</h2>
+          <div class="reviews__separator_wrap"> 
+            <div class="separator-wavy"></div>
+          </div>
+          <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis, excepturi. Repellat laudantium temporibus ea tempora, modi iste nam. Natus corporis omnis quod fuga molestiae dolorum!</p>
+        </div>
+        <div class="feedback">
+          <div class="feedback__contacts">
+                <div class="feedback__point">
+                  <p class="feedback__title">НАШ АДРЕС</p>
+                  <p class="feedback__info">г.Минск, ул.Скрыганова, 6А, 4 этаж</p>
+                </div>
+                <div class="feedback__point">
+                  <p class="feedback__title">ЗВОНИТЕ</p>
+                  <p class="feedback__info">+375 (29) 123-45-67, +375 (33) 123-45-67</p>
+                </div>
+                <div class="feedback__point">
+                  <p class="feedback__title">ПИШИТЕ</p>
+                  <p class="feedback__info">info@promo-webcom.by</p>
+                </div>
+          </div>
+          <form class="feedback__form" id="form">
+                <div class="feedback__wrap"> 
+                  <p class="feedback__input-title">ВАШЕ ИМЯ</p>
+                  <input class="feedback__input" placeholder="Иванов Иван" type="text" required="required"/>
+                </div>
+                <div class="feedback__wrap"> 
+                  <p class="feedback__input-title">E-MAIL</p>
+                  <input class="feedback__input" placeholder="example@mysite.com" type="email" required="required"/>
+                </div>
+                <div class="feedback__wrap"> 
+                  <p class="feedback__input-title">ВАША ДОЛЖНОСТЬ</p>
+                  <input class="feedback__input" placeholder="Должность" type="text" required="required"/>
+                </div>
+            <div class="feedback__wrap"> 
+              <p class="feedback__input-title">ОТЗЫВ</p>
+              <textarea class="feedback__input feedback__textarea" placeholder="Ваше сообщение"></textarea>
+            </div>
+            <input type="file" id="file" name="photo" accept="image/*" data-multiple-caption="{count} files selected" multiple="multiple"/>
+            <label class="feedback__addFile" for="file">+</label><span class="feedback__input-title feedback__uploadFiles">ФОТО</span>
+            <div class="feedback__wrap"> 
+              <p class="feedback__input-title">ВВЕДИТЕ КОД С КАРТИНКИ</p>
+              <input class="feedback__input feedback__input-code"/>
+            </div><span class="feedback__capch"><img src="b-reviews/b-reviews/capch.png" alt="capch"/></span>
+            <input class="feedback__submit feedback__validate" type="submit" value="ОТПРАВИТЬ"/>
+          </form>
+        </div>
+      </div>
+    </section>
+    <footer class="footer"> 
+      <div class="footer__wrap"> 
+        <div class="footer__content"> 
+          <div class="footer___block footer__left">
+            <div class="footer__logo"><a href="#main"><img class="logo" src="header/header/logo.png" alt="webcom logo"/></a></div>
+            <div class="footer__separator">
+              <div class="separator-wavy"></div>
+            </div>
+            <p class="footer__text">Дисклеймер компании</p>
+          </div>
+          <div class="footer__block footer__mid"> 
+            <h3 class="footer__title">МЫ В СОЦ СЕТЯХ</h3>
+            <div class="footer__separator">
+              <div class="separator-wavy"></div>
+            </div>
+            <div class="footer__social-links"><a class="footer__link" href="#"><span class="footer__icon footer__inst"></span></a><a class="footer__link" href="#"><span class="footer__icon footer__tw"></span></a><a class="footer__link" href="#"><span class="footer__icon footer__fw"></span></a></div>
+          </div>
+          <div class="footer____block footer__right">
+            <h3 class="footer__title">АДРЕС</h3>
+            <div class="footer__separator">
+              <div class="separator-wavy"></div>
+            </div>
+            <p class="footer__text">г. Минск, ул. Скрыганова, 6А, 4 этаж</p>
+          </div>
+        </div>
+      </div>
+      <p class="footer__copyright">COPYRIGHTS 2015 &copy; WEBCOM MEDIA</p>
+    </footer>
+    <script src="js/lib.js"></script>
+    <script src="js/common.min.js"></script>
+  </body>
+</html>

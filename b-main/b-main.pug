@@ -1,0 +1,51 @@
+section.slider
+  .slider__wrap.swiper-container
+    .swiper-wrapper
+      .slider__slide.swiper-slide
+        .slider__content
+          h1.slider__title ГЛАВНЫЙ ЗАГОЛОВОК
+          .slider__separator
+            span.slider__separator-center
+          p.slider__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus odio maxime fuga accusantium optio ducimus porro veritatis nisi? Lorem ipsum dolor sit amet.
+        button.slider__button.open__modal ОФОРМИТЬ ЗАЯВКУ
+      .slider__slide.swiper-slide
+        .slider__content
+          h2.slider__title ВТОРОЙ ЗАГОЛОВОК
+          .slider__separator
+            span.slider__separator-center
+          p.slider__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus odio maxime fuga accusantium optio ducimus porro veritatis nisi? Lorem ipsum dolor sit amet. Lorem ipsum, dolor sit amet consectetur adipisicing elit!
+        button.slider__button.open__modal ОФОРМИТЬ ЗАЯВКУ
+      .slider__slide.swiper-slide
+        .slider__content
+          h2.slider__title ТРЕТИЙ ЗАГОЛОВОК
+          .slider__separator
+            span.slider__separator-center
+          p.slider__text Lorem ipsum dolor sit amet! Officiis labore, dolorem similique odit neque repudiandae consequatur!
+        button.slider__button.open__modal ОФОРМИТЬ ЗАЯВКУ
+
+    .swiper-pagination
+    .swiper-button-prev
+    .swiper-button-next
+
+  // скролл к следующему блоку
+  a(href="#portfolio").nextBlock
+    .slider__next-block
+
+// фиксированный скроллбар справа
+.scrollbar
+  a(href="#main").dot.scrollbar__dot.dot_nav.dot_active
+  a(href="#portfolio").dot.scrollbar__dot.dot_nav
+  a(href="#advantages").dot.scrollbar__dot.dot_nav
+  a(href="#reviews").dot.scrollbar__dot.dot_nav
+  
+// кнопка наверх
+a(href="#main").scrollStart
+  .btnUp.showBtn
+
+
+// модальное окно для кнопки "оформить заявку"
+.modal
+  .modal__overlay.modal__overlay_hide
+  .modal__window
+    span.modal__x.modal__x_hide X
+    

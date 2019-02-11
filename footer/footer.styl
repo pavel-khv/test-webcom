@@ -1,0 +1,117 @@
+.footer
+  &__wrap
+    position relative
+    background url('footer/footer/bg-footer.png') no-repeat
+    background-color bg-color
+    background-position right
+    padding 60px 0 80px
+    
+  
+  &__right
+    text-align right
+
+  &__mid
+    text-align center
+
+  &__content
+    width 1400px
+    margin 0 auto
+    display flex
+    justify-content space-between
+  
+  &__separator
+    display inline-block
+    margin 20px 0
+  
+  &__text
+    max-width 200px
+    font-size main-size - 2
+    line-height main-size + 8
+    color #fff 
+  
+  &__title
+    font-size main-size
+    line-height main-size + 20
+    color #fff 
+    font-weight 700
+
+  &__social-links
+    display flex
+    
+  &__link 
+    margin 0 12px
+
+  &__icon
+    display inline-block
+  
+  &__inst
+    sprite($instagram)
+
+  &__tw
+    sprite($twitter)
+  
+  &__fw
+    sprite($facebook)
+
+  &__copyright
+    position relative
+    min-width 100%
+    background bg-active-color
+    color #fff 
+    font-size main-size - 2
+    line-height main-size + 20
+    font-weight 400
+    text-align center
+    padding 15px 0
+    &:after
+      underline()
+  
+
+@media screen and (max-width:1600px)
+  .footer
+    &__wrap
+      padding 40px 0 60px
+    &__content
+      width 1170px
+    
+    &__text
+      font-size main-size - 4
+      line-height main-size + 8
+    
+    &__title
+      font-size main-size - 2
+      line-height main-size + 14
+    &__inst
+      sprite($instagram)
+      background-size 40px 40px
+      width 20px
+      height 20px
+
+    &__tw
+      sprite($twitter)
+      background-size 48px 46px
+      width 20px
+      height 20px
+    
+    &__fw
+      sprite($facebook)
+      background-size 48px 50px
+      width 15px
+      height 24px
+
+    &__copyright
+      font-size main-size - 4
+      line-height main-size + 12
+      padding 10px 0
+
+@media screen and (max-width:1280px)
+  .footer
+    &__content
+      width 720px
+@media screen and (max-width:768px)
+  .footer
+    &__content
+      justify-content space-around
+      width 95%
+    &__right
+      display none

@@ -1,0 +1,201 @@
+.reviews
+  &__wrap
+    width 100%
+    padding 60px 0
+
+  &__content
+    margin 0 auto 
+    text-align center
+
+  &__separator_wrap
+    display inline-block 
+    margin 20px 0
+
+.feedback
+  position relative
+  width 940px
+  margin 50px auto 0 
+  display flex
+  justify-content space-between
+
+  &__point
+    margin-bottom 20px
+
+  &__title
+    feedbackTitle()
+    color hl-color
+
+  &__info
+    font-size main-size + 2
+    line-height main-size + 8
+    font-weight 400
+    color rgba(153, 153, 153, 0.25)
+
+  &__form
+    position relative
+    width 540px
+
+  &__wrap
+    margin-bottom 20px
+
+  &__input-title
+    feedbackTitle()
+    color bg-color
+
+  &__input
+    outline none
+    border none
+    background url('b-reviews/b-reviews/underline.png')
+    background-position 0 0
+    height 24px
+    width 100%
+    font-size main-size + 2
+    line-height main-size + 8
+    padding-bottom 2px
+    &-code
+      width 300px
+    &[placeholder]
+      font-style italic
+      font-size main-size + 2
+      opacity 0.4
+  &__textarea
+    min-width 100%
+    max-width 100%
+    min-height 120px
+    margin-bottom 20px
+    overflow auto
+  
+  &__addFile
+    display inline-block
+    background hl-color
+    padding 20px
+    margin 20px 20px 20px 0
+    border-radius 10px
+    color #fff 
+    font-size main-size + 14
+    cursor pointer
+    transition 0.3s
+    &:hover
+      background lighten(hl-color, 10%)
+
+  &__capch
+    width 55%
+  &__submit
+    position absolute
+    right 0
+    bottom 0
+    background hl-color
+    border none 
+    border-radius 10px
+    color #fff 
+    font-size main-size + 2
+    font-weight 400
+    letter-spacing 2px
+    padding 20px 50px
+    cursor pointer
+    transition 0.3s
+    &:hover
+      background lighten(hl-color, 10%)
+#file
+  width 0
+  height 0
+
+#reviews
+  scrollTop()
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) 
+  .feedback
+    &__input
+      background-position 0 -1px
+    &__submit
+      padding 20px 40px
+
+@media screen and (max-width:1600px)
+  .feedback
+    width 940px
+    margin 50px auto 0 
+    &__title,
+    &__input-title
+      font-size main-size + 4
+      line-height main-size + 8
+
+    &__info
+      font-size main-size
+      line-height main-size + 8
+
+    &__form
+      width 440px
+
+    &__input
+      &-code
+        width 240px
+      &[placeholder]
+        font-size main-size 
+    
+    &__addFile
+      padding 15px
+      margin 20px 20px 20px 0
+      font-size main-size + 8
+    &__submit
+      font-size main-size 
+      letter-spacing 1px
+      padding 15px 40px
+    #reviews
+      &:before
+        height 80px
+        margin-top -80px
+
+@media screen and (max-width:1280px)
+  .feedback
+    width 700px
+    &__title,
+    &__input-title
+      font-size main-size
+      line-height main-size + 8
+
+    &__info
+      font-size main-size - 2
+      line-height main-size + 8
+
+    &__form
+      width 360px
+
+    &__input
+      &-code
+        width 180px
+      &[placeholder]
+        font-size main-size - 2
+    
+    &__addFile
+      margin 20px 20px 20px 0
+      font-size main-size + 6
+    &__submit
+      font-size main-size - 2
+
+@media screen and (max-width:768px)
+  .feedback
+    flex-wrap wrap-reverse
+    justify-content center
+    width 95%
+
+    &__form
+      width 90%
+      margin-bottom 50px
+
+    &__point
+      text-align center
+    
+    &__input
+      &-code
+        width 135px
+  #reviews
+    &:before
+      height 60px
+      margin-top -60px
+
+@media screen and (max-width:360px)
+  .feedback
+    &__submit
+      font-size main-size - 4
+      padding 15px 20px
+

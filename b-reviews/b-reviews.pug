@@ -1,0 +1,42 @@
+//- пункты контактов
+mixin point(title, info)
+  .feedback__point
+    p.feedback__title= title
+    p.feedback__info= info
+//- инпуты для формы
+mixin input(title, placeholder, tp="text")
+  .feedback__wrap 
+    p.feedback__input-title= title
+    input(placeholder=""+placeholder type=""+tp required).feedback__input
+#reviews
+section.reviews
+  .reviews__wrap
+    .reviews__content 
+      h2.title ОСТАВЬТЕ ОТЗЫВ
+      .reviews__separator_wrap 
+        .separator-wavy
+      p.text Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis, excepturi. Repellat laudantium temporibus ea tempora, modi iste nam. Natus corporis omnis quod fuga molestiae dolorum!
+    .feedback
+      .feedback__contacts
+        +point('НАШ АДРЕС','г.Минск, ул.Скрыганова, 6А, 4 этаж')
+        +point('ЗВОНИТЕ','+375 (29) 123-45-67, +375 (33) 123-45-67')
+        +point('ПИШИТЕ','info@promo-webcom.by')
+      form.feedback__form#form
+        +input('ВАШЕ ИМЯ', 'Иванов Иван')
+        +input('E-MAIL', 'example@mysite.com', 'email')
+        +input('ВАША ДОЛЖНОСТЬ', 'Должность') 
+        .feedback__wrap 
+          p.feedback__input-title ОТЗЫВ
+          textarea(placeholder="Ваше сообщение").feedback__input.feedback__textarea
+
+        input(type="file" id="file" name="photo" accept="image/*" data-multiple-caption="{count} files selected" multiple)
+        label(for="file").feedback__addFile +
+        span.feedback__input-title.feedback__uploadFiles ФОТО
+
+        .feedback__wrap 
+          p.feedback__input-title ВВЕДИТЕ КОД С КАРТИНКИ
+          input.feedback__input.feedback__input-code
+
+        span.feedback__capch
+          img(src="b-reviews/b-reviews/capch.png" alt="capch")
+        input(type="submit" value="ОТПРАВИТЬ").feedback__submit.feedback__validate
