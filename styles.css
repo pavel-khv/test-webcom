@@ -1169,6 +1169,9 @@ a {
   background: #ff8f20;
 }
 #file {
+  position: absolute;
+  left: -9000px;
+  top: -9000px;
   width: 0;
   height: 0;
 }
