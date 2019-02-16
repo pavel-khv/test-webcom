@@ -21,10 +21,12 @@ var mySwiper = new Swiper('.swiper-container', {
 
 //спрятать навигационное меню при скролле и отображение кнопки "наверх"
 var btn = document.querySelector('.showBtn');
+var header = document.querySelector('.header__wrap');
+
 window.addEventListener('scroll', function(){
   var body =  document.documentElement.scrollTop; //кол-во проскролленых пикселей от начала страницы
   //при скролле прячем мобильное меню
-  if(body > 60){
+  if(body > header.offsetHeight){
     headerList.classList.remove('open-menu');
   }
   //отображаем или прячем кнопку "наверх"
@@ -39,15 +41,16 @@ window.addEventListener('scroll', function(){
 var burger = document.querySelector('.open-menu');
 var headerList = document.querySelector('.header__list');
 
-burger.onclick = function(){
+burger.addEventListener('click', function(){
   headerList.classList.toggle('open-menu');
-}
+});
 
 
 //скролл по якорным ссылкам
-var linkNav = document.querySelectorAll('.header__link, .nextBlock,.scrollbar__dot,.scrollStart'), //выбираем все ссылки к якорю на странице
+var linkNav = document.querySelectorAll('.header__link, .nextBlock,.scrollbar__dot,.scrollStart') || 0, //выбираем все ссылки к якорю на странице
     V = 0.2;  // скорость, может иметь дробное значение через точку (чем меньше значение - тем больше скорость)
-for (var i = 0; i < linkNav.length; i++) {
+if(linkNav){
+  for (var i = 0; i < linkNav.length; i++) {
     linkNav[i].addEventListener('click', function(e) { //по клику на ссылку
         e.preventDefault(); //отменяем стандартное поведение
         var w = window.pageYOffset,  // производим прокрутку
@@ -67,13 +70,54 @@ for (var i = 0; i < linkNav.length; i++) {
             }
         }
     }, false);
+  };
 };
 
 
 //отображение активного пункта меню
-var scrollbarLinks = document.querySelectorAll('.scrollbar__dot');
-var headerLinks = document.querySelectorAll('.header__link');
+var scrollbarLinks = document.querySelectorAll('.scrollbar__dot') || 0;
+var headerLinks = document.querySelectorAll('.header__link') || 0;
 var idNav = [];
+
+if(headerLinks){
+  //достаем значения href из ссылок и пушим в массив
+  for(var i = 0; i < headerLinks.length; i++){
+    var attr = headerLinks[i].getAttribute('href');
+    idNav.push(attr);
+  }
+
+  //сохраняем элементы с полученными ссылками
+  var anchor_1 = document.querySelector(idNav[0]);
+  var anchor_1 = document.querySelector(idNav[1]);
+  var anchor_2 = document.querySelector(idNav[2]);
+  var anchor_3 = document.querySelector(idNav[3]);
+
+
+  function viewActiveLink(){
+    var body = document.documentElement.scrollTop; //кол-во проскролленых пикселей от начала страницы
+    //получаем позицию наших элементов и сравниваем с кол-ом проскролленых пикселей
+    if(body >= anchor_1.offsetTop - 1 && body < anchor_2.offsetTop){
+      removeActiveClass();
+      addActiveClass(1);
+    }else if(body >= anchor_2.offsetTop - 1 && body < anchor_3.offsetTop){
+      removeActiveClass();
+      addActiveClass(2);
+    }else if(body >= anchor_3.offsetTop - 1){
+      removeActiveClass();
+      addActiveClass(3);
+    }else{
+      removeActiveClass();
+      addActiveClass(0);
+    }
+  };
+
+  //активируем активную ссылку
+  viewActiveLink();
+
+  window.addEventListener('scroll', function(){
+    viewActiveLink();
+  });
+}
 
 //убираем активные классы
 function removeActiveClass(){
@@ -89,45 +133,6 @@ function addActiveClass(n){
   headerLinks[n].classList.add('header__link_active');
 }
 
-//достаем значения href из ссылок и пушим в массив
-for(var i = 0; i < headerLinks.length; i++){
-  var attr = headerLinks[i].getAttribute('href');
-  idNav.push(attr);
-}
-
-//сохраняем элементы с полученными ссылками
-var anchor_1 = document.querySelector(idNav[0]);
-var anchor_1 = document.querySelector(idNav[1]);
-var anchor_2 = document.querySelector(idNav[2]);
-var anchor_3 = document.querySelector(idNav[3]);
-
-
-function viewActiveLink(){
-  var body = document.documentElement.scrollTop; //кол-во проскролленых пикселей от начала страницы
-  console.log(body);
-  //получаем позицию наших элементов и сравниваем с кол-ом проскролленых пикселей
-  if(body >= anchor_1.offsetTop - 1 && body < anchor_2.offsetTop){
-    removeActiveClass();
-    addActiveClass(1);
-  }else if(body >= anchor_2.offsetTop - 1 && body < anchor_3.offsetTop){
-    removeActiveClass();
-    addActiveClass(2);
-  }else if(body >= anchor_3.offsetTop - 1){
-    removeActiveClass();
-    addActiveClass(3);
-  }else{
-    removeActiveClass();
-    addActiveClass(0);
-  }
-};
-
-//активируем активную ссылку
-viewActiveLink();
-
-window.addEventListener('scroll', function(){
-  viewActiveLink();
-});
-
 
 //отображение выбранных файлов
 var inputs = document.querySelectorAll('#file');
@@ -139,10 +144,12 @@ Array.prototype.forEach.call(inputs, function(input){
 	input.addEventListener('change', function(e)
 	{
 		var fileName = '';
-		if(this.files && this.files.length > 1)
-			fileName = (this.getAttribute('data-multiple-caption') || '' ).replace('{count}', this.files.length);
-		else
-			fileName = e.target.value.split('\\').pop();
+		if(this.files && this.files.length > 1){
+      fileName = (this.getAttribute('data-multiple-caption') || '' ).replace('{count}', this.files.length);
+    }
+		else{
+      fileName = e.target.value.split('\\').pop();
+    }
 
 		if(fileName){
       document.querySelector('.feedback__uploadFiles').innerHTML = fileName;
@@ -170,7 +177,7 @@ function validate() {
   return false;
 }
 
-document.querySelector('.feedback__validate').onclick = validate;
+document.querySelector('.feedback__validate').addEventListener('click', validate);
 
 
 //модальное окно для кнопки "оформить заявку"
@@ -187,8 +194,8 @@ for(var j = 0; j < makeRequest.length; j++){
 };
 
 //при клике на Х или оверлей скрываем модальное окно
-modalOverlay.onclick = hideModal;
-modalHideBtn.onclick = hideModal;
+modalOverlay.addEventListener('click', hideModal);
+modalHideBtn.addEventListener('click', hideModal);
 function hideModal(){
   modal.style.display = 'none';
 }
