@@ -1,11 +1,14 @@
 //- блоки с работами
-mixin workBox(nameWork, descriptionWork)
-  .works__box
-    .works__box_hover-slide
-      p.works__name= nameWork
-      .works__separator
-        .separator-wavy
-      span.works__description= descriptionWork
+mixin workBox(...items)
+  each item in items
+    .works__box
+      .works__box_hover-slide
+        //- название работы
+        p.works__name= item[0]
+        .works__separator
+          .separator-wavy
+        //- описание работы
+        span.works__description= item[1]
 #portfolio
 section.portfolio
   .portfolio__wrap
@@ -15,11 +18,13 @@ section.portfolio
         .separator-wavy
       p.text Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis, excepturi. Repellat laudantium temporibus ea tempora, modi iste nam. Natus corporis omnis quod fuga molestiae dolorum!
     .works
-      +workBox('НАЗВАНИЕ РАБОТЫ', 'ОПИСАНИЕ РАБОТЫ')
-      +workBox('НАЗВАНИЕ РАБОТЫ', 'ОПИСАНИЕ РАБОТЫ')
-      +workBox('НАЗВАНИЕ РАБОТЫ', 'ОПИСАНИЕ РАБОТЫ')
-      +workBox('НАЗВАНИЕ РАБОТЫ', 'ОПИСАНИЕ РАБОТЫ')
-      +workBox('НАЗВАНИЕ РАБОТЫ', 'ОПИСАНИЕ РАБОТЫ')
-      +workBox('НАЗВАНИЕ РАБОТЫ', 'ОПИСАНИЕ РАБОТЫ')
+      +workBox(
+        ['НАЗВАНИЕ РАБОТЫ', 'ОПИСАНИЕ РАБОТЫ'],
+        ['НАЗВАНИЕ РАБОТЫ', 'ОПИСАНИЕ РАБОТЫ'],
+        ['НАЗВАНИЕ РАБОТЫ', 'ОПИСАНИЕ РАБОТЫ'],
+        ['НАЗВАНИЕ РАБОТЫ', 'ОПИСАНИЕ РАБОТЫ'],
+        ['НАЗВАНИЕ РАБОТЫ', 'ОПИСАНИЕ РАБОТЫ'],
+        ['НАЗВАНИЕ РАБОТЫ', 'ОПИСАНИЕ РАБОТЫ']
+        )
 
 

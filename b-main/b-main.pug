@@ -1,27 +1,27 @@
+mixin scrollbarDots(...items)
+  each item in items
+    a(href="#"+item).dot.scrollbar__dot.dot_nav
+
+mixin slideInfo(...items)
+  each item in items
+    .slider__slide.swiper-slide
+      .slider__content
+        //- заголовок
+        h1.slider__title= item[0]
+        .slider__separator
+          span.slider__separator-center
+        //- текст слайда
+        p.slider__text= item[1] 
+      button.slider__button.open__modal ОФОРМИТЬ ЗАЯВКУ
+
 section.slider
   .slider__wrap.swiper-container
     .swiper-wrapper
-      .slider__slide.swiper-slide
-        .slider__content
-          h1.slider__title ГЛАВНЫЙ ЗАГОЛОВОК
-          .slider__separator
-            span.slider__separator-center
-          p.slider__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus odio maxime fuga accusantium optio ducimus porro veritatis nisi? Lorem ipsum dolor sit amet.
-        button.slider__button.open__modal ОФОРМИТЬ ЗАЯВКУ
-      .slider__slide.swiper-slide
-        .slider__content
-          h2.slider__title ВТОРОЙ ЗАГОЛОВОК
-          .slider__separator
-            span.slider__separator-center
-          p.slider__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus odio maxime fuga accusantium optio ducimus porro veritatis nisi? Lorem ipsum dolor sit amet. Lorem ipsum, dolor sit amet consectetur adipisicing elit!
-        button.slider__button.open__modal ОФОРМИТЬ ЗАЯВКУ
-      .slider__slide.swiper-slide
-        .slider__content
-          h2.slider__title ТРЕТИЙ ЗАГОЛОВОК
-          .slider__separator
-            span.slider__separator-center
-          p.slider__text Lorem ipsum dolor sit amet! Officiis labore, dolorem similique odit neque repudiandae consequatur!
-        button.slider__button.open__modal ОФОРМИТЬ ЗАЯВКУ
+      +slideInfo(
+        ['ГЛАВНЫЙ ЗАГОЛОВОК', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus odio maxime fuga accusantium optio ducimus porro veritatis nisi?'],
+        ['ВТОРОЙ ЗАГОЛОВОК', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime fuga accusantium optio ducimus porro veritatis nisi?'],
+        ['ТРЕТИЙ ЗАГОЛОВОК', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus odio maxime fuga accusantium optio ducimus porro veritatis nisi?']
+      ) 
 
     .swiper-pagination
     .swiper-button-prev
@@ -33,10 +33,7 @@ section.slider
 
 // фиксированный скроллбар справа
 .scrollbar
-  a(href="#main").dot.scrollbar__dot.dot_nav.dot_active
-  a(href="#portfolio").dot.scrollbar__dot.dot_nav
-  a(href="#advantages").dot.scrollbar__dot.dot_nav
-  a(href="#reviews").dot.scrollbar__dot.dot_nav
+  +scrollbarDots('main', 'portfolio', 'advantages', 'reviews')
   
 // кнопка наверх
 a(href="#main").scrollStart

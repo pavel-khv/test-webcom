@@ -1,9 +1,14 @@
 //- блоки преимуществ
-mixin excellence(name, text, iconClass)
-  .excellences__block
-    div(class="excellences__icon "+iconClass+" "+iconClass+"-dims")
-    span.excellences__name= name
-    p.text.excellences__text= text
+mixin excellence(...items)
+  each item in items
+    .excellences__block
+      //- класс иконки
+      div(class="excellences__icon "+item[2]+" "+item[2]+"-dims")
+      //- название преимущества
+      span.excellences__name= item[0]
+      //- текст преимущества
+      p.text.excellences__text= item[1]
+      
 #advantages
 section.advantages
   .advantages__wrap
@@ -14,11 +19,13 @@ section.advantages
       p.text Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis, excepturi. Repellat laudantium temporibus ea tempora, modi iste nam. Natus corporis omnis quod fuga molestiae dolorum!
     
     .excellences
-      +excellence('ПРЕИМУЩЕСТВО 1', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.', 'svg-monitor')
-      +excellence('ПРЕИМУЩЕСТВО 2', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.', 'svg-magic_wand')
-      +excellence('ПРЕИМУЩЕСТВО 3', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.', 'svg-rocket')
-      +excellence('ПРЕИМУЩЕСТВО 4', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.', 'svg-globe_2')
-      +excellence('ПРЕИМУЩЕСТВО 5', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.', 'svg-settings')
-      +excellence('ПРЕИМУЩЕСТВО 6', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.', 'svg-layers')
-      +excellence('ПРЕИМУЩЕСТВО 7', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.', 'svg-wrench')
-      +excellence('ПРЕИМУЩЕСТВО 8', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.', 'svg-note')
+      +excellence(
+        ['ПРЕИМУЩЕСТВО 1', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.', 'svg-monitor'],
+        ['ПРЕИМУЩЕСТВО 1', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.', 'svg-magic_wand'],
+        ['ПРЕИМУЩЕСТВО 1', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.', 'svg-rocket'],
+        ['ПРЕИМУЩЕСТВО 1', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.', 'svg-globe_2'],
+        ['ПРЕИМУЩЕСТВО 1', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.', 'svg-settings'],
+        ['ПРЕИМУЩЕСТВО 1', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.', 'svg-layers'],
+        ['ПРЕИМУЩЕСТВО 1', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.', 'svg-wrench'],
+        ['ПРЕИМУЩЕСТВО 1', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum incidunt praesentium aliquam illum.', 'svg-note']
+      )

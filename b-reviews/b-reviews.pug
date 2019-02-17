@@ -1,8 +1,11 @@
 //- пункты контактов
-mixin point(title, info)
-  .feedback__point
-    p.feedback__title= title
-    p.feedback__info= info
+mixin point(...items)
+  each item in items
+    .feedback__point
+      //- заголовок пункта
+      p.feedback__title= item[0]
+      //- информация
+      p.feedback__info= item[1]
 //- инпуты для формы
 mixin input(title, placeholder, tp="text")
   .feedback__wrap 
@@ -18,9 +21,11 @@ section.reviews
       p.text Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis, excepturi. Repellat laudantium temporibus ea tempora, modi iste nam. Natus corporis omnis quod fuga molestiae dolorum!
     .feedback
       .feedback__contacts
-        +point('НАШ АДРЕС','г.Минск, ул.Скрыганова, 6А, 4 этаж')
-        +point('ЗВОНИТЕ','+375 (29) 123-45-67, +375 (33) 123-45-67')
-        +point('ПИШИТЕ','info@promo-webcom.by')
+        +point(
+          ['НАШ АДРЕС','г.Минск, ул.Скрыганова, 6А, 4 этаж'],
+          ['ЗВОНИТЕ','+375 (29) 123-45-67, +375 (33) 123-45-67'],
+          ['ПИШИТЕ','info@promo-webcom.by']
+        )
       form.feedback__form#form
         +input('ВАШЕ ИМЯ', 'Иванов Иван')
         +input('E-MAIL', 'example@mysite.com', 'email')
