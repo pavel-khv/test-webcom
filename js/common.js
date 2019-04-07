@@ -1,4 +1,4 @@
-//слайдер
+//slider
 var mySwiper = new Swiper('.swiper-container', {
   speed: 700,
   spaceBetween: 100,
@@ -19,17 +19,17 @@ var mySwiper = new Swiper('.swiper-container', {
 });
 
 
-//спрятать навигационное меню при скролле и отображение кнопки "наверх"
+//hide the navigation menu when scrolling and display the top button
 var btn = document.querySelector('.showBtn');
 var header = document.querySelector('.header__wrap');
 
 window.addEventListener('scroll', function(){
-  var body =  document.documentElement.scrollTop; //кол-во проскролленых пикселей от начала страницы
-  //при скролле прячем мобильное меню
+  var body =  document.documentElement.scrollTop; //number of scrolled pixels from the beginning of the page
+  //when scrolling hide mobile menu
   if(body > header.offsetHeight){
     headerList.classList.remove('open-menu');
   }
-  //отображаем или прячем кнопку "наверх"
+  //display or hide the "top" button
   if(body > 700){
     btn.style.display = 'block';
   }else{
@@ -37,7 +37,7 @@ window.addEventListener('scroll', function(){
   }
 });
 
-//открытие мобильного меню
+//open burger menu
 var burger = document.querySelector('.open-menu');
 var headerList = document.querySelector('.header__list');
 
@@ -46,18 +46,18 @@ burger.addEventListener('click', function(){
 });
 
 
-//скролл по якорным ссылкам
-var linkNav = document.querySelectorAll('.header__link, .nextBlock,.scrollbar__dot,.scrollStart') || 0, //выбираем все ссылки к якорю на странице
-    V = 0.2;  // скорость, может иметь дробное значение через точку (чем меньше значение - тем больше скорость)
+//scrolling for anchor links
+var linkNav = document.querySelectorAll('.header__link, .nextBlock,.scrollbar__dot,.scrollStart') || 0, //select all anchor links on the page
+    V = 0.2;  // speed can have a fractional value through the point (the lower the value - the greater the speed)
 if(linkNav){
   for (var i = 0; i < linkNav.length; i++) {
-    linkNav[i].addEventListener('click', function(e) { //по клику на ссылку
-        e.preventDefault(); //отменяем стандартное поведение
-        var w = window.pageYOffset,  // производим прокрутку
-            hash = this.href.replace(/[^#]*(.*)/, '$1');  // к id элемента, к которому нужно перейти
-        t = document.querySelector(hash).getBoundingClientRect().top,  // отступ от окна браузера до id
+    linkNav[i].addEventListener('click', function(e) { //by clicking on the link
+        e.preventDefault(); //cancel the standard behavior
+        var w = window.pageYOffset,  // we make scrolling
+            hash = this.href.replace(/[^#]*(.*)/, '$1');  // for id element
+        t = document.querySelector(hash).getBoundingClientRect().top,  // the offset from the browser window id
             start = null;
-        requestAnimationFrame(step);  // подробнее про функцию анимации [developer.mozilla.org]
+        requestAnimationFrame(step);  // learn more about the animation feature [developer.mozilla.org]
         function step(time) {
             if (start === null) start = time;
             var progress = time - start,
@@ -66,7 +66,7 @@ if(linkNav){
             if (r != w + t) {
                 requestAnimationFrame(step)
             } else {
-                location.hash = hash  // URL с хэшем
+                location.hash = hash  // URL with hash
             }
         }
     }, false);
@@ -74,19 +74,19 @@ if(linkNav){
 };
 
 
-//отображение активного пункта меню
+//display the active menu item
 var scrollbarLinks = document.querySelectorAll('.scrollbar__dot') || 0;
 var headerLinks = document.querySelectorAll('.header__link') || 0;
 var idNav = [];
 
 if(headerLinks){
-  //достаем значения href из ссылок и пушим в массив
+  //get the href values from the links and push into the array
   for(var i = 0; i < headerLinks.length; i++){
     var attr = headerLinks[i].getAttribute('href');
     idNav.push(attr);
   }
 
-  //сохраняем элементы с полученными ссылками
+  //save the elements with the received links
   var anchor_1 = document.querySelector(idNav[0]);
   var anchor_1 = document.querySelector(idNav[1]);
   var anchor_2 = document.querySelector(idNav[2]);
@@ -94,8 +94,8 @@ if(headerLinks){
 
 
   function viewActiveLink(){
-    var body = document.documentElement.scrollTop; //кол-во проскролленых пикселей от начала страницы
-    //получаем позицию наших элементов и сравниваем с кол-ом проскролленых пикселей
+    var body = document.documentElement.scrollTop; //number of scrolled pixels from the beginning of the page
+    //get the position of our elements and compare with the number of scrolled pixels
     if(body >= anchor_1.offsetTop - 1 && body < anchor_2.offsetTop){
       removeActiveClass();
       addActiveClass(1);
@@ -111,7 +111,7 @@ if(headerLinks){
     }
   };
 
-  //активируем активную ссылку
+  //activate the active link
   viewActiveLink();
 
   window.addEventListener('scroll', function(){
@@ -119,7 +119,7 @@ if(headerLinks){
   });
 }
 
-//убираем активные классы
+//remove active classes
 function removeActiveClass(){
   for(var i = 0; i < headerLinks.length; i++){
     scrollbarLinks[i].classList.remove('dot_active');
@@ -127,14 +127,14 @@ function removeActiveClass(){
   }
 }
 
-//добавляем активные классы
+//add active classes
 function addActiveClass(n){
   scrollbarLinks[n].classList.add('dot_active');
   headerLinks[n].classList.add('header__link_active');
 }
 
 
-//отображение выбранных файлов
+//display the selected files
 var inputs = document.querySelectorAll('#file');
 
 Array.prototype.forEach.call(inputs, function(input){
@@ -161,13 +161,13 @@ Array.prototype.forEach.call(inputs, function(input){
 });
 
 
-// валидация e-mail
-//регулярное выражение
+// validation e-mail
+//regular expression
 function validateEmail(email) {
   var pattern  = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
   return pattern.test(email);
 }
-//при клике сверяем значение инпута
+//when clicking verify the value of the input
 function validate() {
   var email = document.querySelector('.feedback__input[type="email"]').value;
  
@@ -180,20 +180,20 @@ function validate() {
 document.querySelector('.feedback__validate').addEventListener('click', validate);
 
 
-//модальное окно для кнопки "оформить заявку"
+//modal window for button "apply now"
 var makeRequest = document.querySelectorAll('.open__modal');
 var modal = document.querySelector('.modal');
 var modalOverlay = document.querySelector('.modal__overlay_hide');
 var modalHideBtn = document.querySelector('.modal__x_hide');
 
-//вешаем событие на каждую кнопку "оформить заявку"
+//add the event on each button "place an order"
 for(var j = 0; j < makeRequest.length; j++){
   makeRequest[j].addEventListener('click', function(){
     modal.style.display = 'block';
   })
 };
 
-//при клике на Х или оверлей скрываем модальное окно
+//when you click on X or overlay hide modal window
 modalOverlay.addEventListener('click', hideModal);
 modalHideBtn.addEventListener('click', hideModal);
 function hideModal(){
